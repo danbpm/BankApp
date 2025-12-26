@@ -1,5 +1,5 @@
 public class DebitAccount extends Account{
-    DebitAccount(int accountNumber, double balance, int owner){
+    DebitAccount(String accountNumber, double balance, Customer owner){
         super(accountNumber, balance, owner);
     }
 
@@ -15,8 +15,9 @@ public class DebitAccount extends Account{
         }
 
         balance -= amount;
-        System.out.println("Счет id = " + accountNumber + ". Снятие средств. " +
-                "Количество: " + amount + " у.е.");
+
+        System.out.println("Владелец: " + owner.getFullName() + "\tСчет: " + accountNumber +
+                "\tОперация: СНЯТИЕ" + "\tСумма: " + amount);
 
 
         return true;

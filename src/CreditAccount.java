@@ -1,7 +1,7 @@
 public class CreditAccount extends Account{
-    private double creditLimit;
+    private final double creditLimit;
 
-    CreditAccount(int accountNumber, double balance, int owner, double creditLimit){
+    CreditAccount(String accountNumber, double balance, Customer owner, double creditLimit){
         super(accountNumber, balance, owner);
         this.creditLimit = creditLimit;
     }
@@ -12,15 +12,18 @@ public class CreditAccount extends Account{
             System.out.println("Ошибка снятия средств. Сумма снятие должна быть неотрицательной");
             return false;
         }
+
         if (amount > (balance + creditLimit)) {
             System.out.println("Ошибка снятия средств. Недостаточно средств.");
             return false;
         }
 
         balance -= amount;
-        System.out.println("Счет id = " + accountNumber + ". Снятие средств. " +
-                "Количество: " + amount + " у.е.");
+
+        System.out.println("Владелец: " + owner.getFullName() + "\tСчет: " + accountNumber +
+                "\tОперация: СНЯТИЕ" + "\tСумма: " + amount);
 
         return true;
     }
+
 }
