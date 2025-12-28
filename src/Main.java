@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+// Reviewed for Lab 1
 public class Main {
     public static void main(){
         Bank bank = new Bank();
